@@ -1,0 +1,166 @@
+
+      /* Styles for the navigation menu */
+      body {
+        background-color: #D6F5FF;
+      }
+
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #07A1DA;
+        padding: 1rem;
+        border-radius: 10px;
+        border: 1px solid #ccc;
+        margin-bottom: 1rem;
+      }
+      
+      .nav-item {
+        margin: 0 0.5rem;
+        font-size: 1.2rem;
+        font-weight: bold;
+        text-transform: uppercase;
+      }
+      
+      /* Styles for the search bar */
+      .search-bar {
+        display: flex;
+        align-items: center;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        padding: 0.5rem;
+        margin: 1rem;
+      }
+      
+      .search-bar input[type="text"] {
+        flex-grow: 1;
+        border: none;
+        outline: none;
+        font-size: 1.2rem;
+        padding: 0.5rem;
+        margin-right: 0.5rem;
+      }
+      
+      .search-bar button {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        outline: none;
+        font-size: 1.2rem;
+        padding: 0.5rem;
+        cursor: pointer;
+      }
+      
+      /* Styles for the login and sign-up buttons */
+      .login-btn, .signup-btn {
+        background-color: #045877;
+        color: #fff;
+        border: none;
+        outline: none;
+        font-size: 1.2rem;
+        padding: 0.5rem;
+        cursor: pointer;
+        margin: 0 0.5rem;
+        border-radius: 10px;
+      }
+      
+      .login-btn:hover, .signup-btn:hover {
+        background-color: #0062cc;
+      }
+      
+      /* Styles for the restaurant sections */
+      .restaurant-section {
+        background-color: #9CD9E7;
+        padding: 1rem;
+        border: 1px solid #ccc;
+        margin: 0 auto;
+        margin-bottom: 1rem;
+        border-radius: 10px;
+        width: 97%;
+        max-width: 1800px;
+        max-height: 500px;
+        overflow-y: auto;
+
+      }
+      
+      .restaurant-section h2 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+      }
+      
+      .restaurant-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        /*width: 90%;*/
+        /*margin: 0 auto;*/
+      }
+      
+      .restaurant-card {
+        background-color: #EFF1F3;
+        display: flex;
+        /*flex-direction: column;*/
+        align-items: center;
+        max-height: 350px;
+        width: calc(30% - 1rem);
+        margin-bottom: 1rem;
+        padding: 1rem;
+        border: 1px solid #ccc;
+        box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+      }
+/*
+      .restaurant-card img {
+        float: left;
+        width: 40%;
+        height: auto;
+        margin-bottom: 1rem;
+        margin-right: 1rem;
+        max-height: 150px;
+        object-fit: cover;
+      }
+
+      .restaurant-card-content {
+        width: 60%;
+      }
+      
+      .restaurant-card h3 {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+      }
+      
+      .restaurant-card p {
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+      }
+      
+      .restaurant-card button {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        outline: none;
+        font-size: 1.2rem;
+        padding: 0.5rem;
+        cursor: pointer;
+      }
+      
+      .restaurant-card button:hover {
+        background-color: #0062cc;
+      }
+
+      .restaurant-card .rating {
+        display: flex;
+        align-items: center;
+        margin-top: 0.5rem;
+      }
+
+      .restaurant-card .rating img {
+        width: 25px;
+        height: 25px;
+        margin-right: 0.5rem;
+      }
+
+      .restaurant-card .rating p {
+        font-size: 1.2rem;
+        margin: 0;
+      }
+*/

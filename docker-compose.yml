@@ -1,0 +1,38 @@
+version: '3'
+
+services:
+  web:
+    container_name: projet-web
+    build: .
+    ports:
+      - "80:80"
+    volumes:
+      - ./html:/var/www/html
+    
+  db:
+    container_name: projet-db
+    image: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASS}
+      MYSQL_DATABASE: projet
+      MYSQL_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${DB_PASS}
+    ports:
+      - "3306:3306"
+    volumes:
+      - projet-db:/var/lib/mysql
+  
+  phpmyadmin:
+    container_name: projet-phpmyadmin
+    image: phpmyadmin/phpmyadmin
+    links:
+      - db:db
+    environment:
+      MYSQL_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${DB_PASS}
+      MYSQL_ROOT_PASSWORD: ${DB_PASS}
+    ports:
+      - "8080:80"
+
+volumes:
+  projet-db:

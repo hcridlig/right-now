@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search Page</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            var timer;
+
+            $('#search').keyup(function(){
+                clearTimeout(timer);
+                var query = $(this).val();
+
+                if (query === '') {
+                    $('#search-results').empty(); // Clear the search results
+                } else {
+                    timer = setTimeout(function() {
+                        $.ajax({
+                            url: 'search.php',
+                            method: 'POST',
+                            data: {query: query},
+                            success: function(response){
+                                $('#search-results').html(response);
+                            }
+                        });
+                    }, 30);
+                }
+            });
+        });
+    </script>
+    <style>
+        .container {
+            max-width: 500px;
+            margin: 100px auto;
+        }
+
+        .search-container {
+            position: relative;
+        }
+
+        .search-icon {
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+            color: #888;
+        }
+
+        .result-item {
+            margin-bottom: 10px;
+            background-color: #f8f9fa;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">Search Page</h1>
+        <div class="search-container">
+            <input type="text" id="search" class="form-control" placeholder="Rechercher...">
+            <i class="fas fa-search search-icon"></i>
+        </div>
+        <div id="search-results"></div>
+    </div>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>

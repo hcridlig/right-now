@@ -1,9 +1,17 @@
+<?php
+require_once 'Scripts/session.php';
+?>
+
 <!DOCTYPE html>
 <html>
   <head>
     <title>Right Now</title>
     <link href="test1.css" rel="stylesheet" type="text/css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.1/bootstrap-icons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
   </head>
   
   <body>
@@ -14,8 +22,33 @@
         <button>Rechercher</button>
       </div>
       <div>
-        <button class="login-btn" onclick="location.href='login.php';">Login</button>
-        <button class="signup-btn" onclick="location.href = 'signup.php';">Sign up</button>
+        <?php
+        // Check if the user is logged in
+        if ($email != "") {
+          // User is logged in, display account icon
+          ?>
+          <div class="dropdown">
+            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="bi bi-person-fill"></i> Compte
+            </a>
+
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+              <li><a class="dropdown-item" href="Scripts/logoff.php">Deconnexion</a></li>
+            </ul>
+          </div>
+
+          <?php
+        } else {
+          // User is not logged in, display login and signup buttons
+          ?>
+          <button class="login-btn" onclick="location.href='login.php';">Login</button>
+          <button class="signup-btn" onclick="location.href='signup.php';">Sign up</button>
+          <?php
+        }
+        ?>
       </div>
     </nav>
 
@@ -186,5 +219,7 @@
     </div>
   </div>
 </footer>
+
+
 </body>
 </html>

@@ -28,6 +28,14 @@
                     }, 30);
                 }
             });
+
+            $('#search').keypress(function(event) {
+                if (event.which == 13) { // Enter key pressed
+                    var query = $(this).val();
+                    window.location.href = 'resultat.php?query=' + query; // Redirect to result.html with query parameter
+                    return false; // Prevent form submission
+                }
+            });
         });
     </script>
     <style>
@@ -49,11 +57,19 @@
         }
 
         .result-item {
+            display: block;
             margin-bottom: 10px;
             background-color: #f8f9fa;
             padding: 10px;
             border-radius: 5px;
+            text-decoration: none;
+            color: #333;
         }
+
+        .result-item:hover {
+            background-color: #e9ecef;
+        }
+
     </style>
 </head>
 <body>

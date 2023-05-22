@@ -1,6 +1,8 @@
 <?php
 require_once 'env_retrieve.php';
 
+session_start();
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Retrieve the form data
     $email = $_POST['email'];
@@ -41,7 +43,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (password_verify($password, $hashedPassword)) {
             // Password is correct, user is authenticated
             // Redirect to the dashboard or desired page
-            header("Location: dashboard.html");
+            $_SESSION['email'] = $email;
+            header("Location: ../test1.php");
             exit;
         }
     }

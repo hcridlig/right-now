@@ -23,7 +23,7 @@ $result = $conn->query($sql);
 $count = 0;
 if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
-        echo "<div class='result-item'><p>".$row['nom']."</p></div>";
+        echo "<a href='result.php?id=".$row['id_restaurant']."' class='result-item'><p>".$row['nom']."</p></a>";
         $count++;
         if ($count === 3) {
             break;

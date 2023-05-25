@@ -1,0 +1,28 @@
+footer {
+        margin-left: 0.5em;
+        position: fixed;
+        bottom: 0;
+      }
+
+      .socialnet img {
+        width: 30px;
+        height: 30px;
+        margin-right: 0.5rem;
+      }
+
+      .col-md-4 li{
+        list-style-type: none;
+      }
+
+      footer {
+        background-color: #07A1DA /*#F5F5DC*/;
+      }
+
+      .lien a{
+        color: black;
+        text-decoration: none;
+      }
+
+      .mail {
+        color: black;
+      }

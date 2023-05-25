@@ -28,6 +28,10 @@ nav {
   color: black;
 }
 
+.d-flex {
+  padding-left: 20em;
+}
+
 /* Styles for the search bar */
 .search-bar {
   display: flex;
@@ -157,3 +161,7 @@ border-radius: 10px;
 .burger-icon:hover {
 background-color: #F4F4F4;
 }
+
+/*.navbar .ml-auto {
+  margin-left: auto !important;
+}*/

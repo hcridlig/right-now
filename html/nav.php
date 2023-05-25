@@ -3,22 +3,23 @@
 <head>
   <link href="nav.css" rel="stylesheet" type="text/css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" >
-    <div class="container-fluid">
+    <!--<div class="container" style="width: 100vw; padding-right: 0; padding-left: 0;">-->
       <a class="navbar-brand" href="test2.php">Right Now</a>
       <form class="d-flex">
-        <input class="form-control me-2" type="search" id="search" placeholder="Recherchez un restaurant" aria-label="Search">
+        <input class="form-control me-2" type="search" id="search" placeholder="Recherchez un restaurant" aria-label="Search" style="width: 40em;">
         <button class="btn btn-outline-success" type="submit">Rechercher</button>
       </form>
       <div class="ml-auto">
-        <div class="btn-group">
+        <div class="btn-group ml-auto">
           <button class="btn btn-primary rounded-btn me-2" type="button" onclick="location.href='login.php';">Login</button>
         </div>
-        <div class="btn-group">
+        <div class="btn-group ml-auto">
           <button class="btn btn-primary rounded-btn" type="button" onclick="location.href='signup.php';">Sign up</button>
         </div>
         <a href="#" id="openBtn">
@@ -29,7 +30,7 @@
           </span>
         </a>
       </div>
-    </div>
+    <!--</div>-->
   </nav>
 
   <div id="mySidenav" class="sidenav">

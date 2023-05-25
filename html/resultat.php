@@ -8,6 +8,14 @@
 </head>
   
 <body>
+  <style>
+    .card-img-top {
+      height: 200px; /* Adjust the height as per your requirement */
+      object-fit: cover; /* Ensure the image covers the container */
+    }
+  </style>
+
+
   <nav>
     <div class="nav-item"><a href="test2.html">Right Now</a></div>
     <div class="search-bar">
@@ -75,12 +83,12 @@
                 //$description = $row['description'];
                 $distance = $row['adresse'];
                 $rating = $row['note'];
-                //$imageURL = $row['image_url'];
-                $imageURL = 'images/restaurant.jpg';
+                $imageURL = $row['image'];
+                //$imageURL = 'images/restaurant.jpg';
               
                 echo '<div class="col-md-4">
                         <div class="card mb-3" style="max-width: 550px;">
-                          <img src="https://picsum.photos/id/240/200/300" class="card-img-top" alt="...">
+                          <img src="'.$imageURL.'" class="card-img-top" alt="...">
                           <div class="card-body">
                             <h5 class="card-title">' . $name . '</h5>
                             <p class="card-text">Description</p>

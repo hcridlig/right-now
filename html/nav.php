@@ -14,7 +14,7 @@
 <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
     <div class="container-fluid">
-      <a class="navbar-brand" href="test2.html">Right Now</a>
+      <a class="navbar-brand" href="test2.php">Right Now</a>
       <form class="d-flex">
         <input class="form-control me-2" type="search" placeholder="Recherchez un restaurant" aria-label="Search">
         <button class="btn btn-outline-success" type="submit">Rechercher</button>

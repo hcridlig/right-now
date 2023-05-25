@@ -11,7 +11,7 @@
     <div class="container-fluid">
       <a class="navbar-brand" href="test2.php">Right Now</a>
       <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Recherchez un restaurant" aria-label="Search">
+        <input class="form-control me-2" type="search" id="search" placeholder="Recherchez un restaurant" aria-label="Search">
         <button class="btn btn-outline-success" type="submit">Rechercher</button>
       </form>
       <div class="ml-auto">
@@ -60,5 +60,41 @@
       sidenav.classList.remove("active");
     }
   </script>
+
+  <script>
+    $(document).ready(function(){
+      var timer;
+
+        $('#search').keyup(function(){
+            clearTimeout(timer);
+            var query = $(this).val();
+
+            if (query === '') {
+                $('#search-results').empty(); // Clear the search results
+            } 
+            else {
+                timer = setTimeout(function() {
+                    $.ajax({
+                        url: 'search.php',
+                        method: 'POST',
+                        data: {query: query},
+                        success: function(response){
+                            $('#search-results').html(response);
+                        }
+                    });
+                }, 30);
+            }
+        });
+
+        $('#search').keypress(function(event) {
+            if (event.which == 13) { // Enter key pressed
+                var query = $(this).val();
+                window.location.href = 'resultat.php?query=' + query; // Redirect to result.html with query parameter
+                return false; // Prevent form submission
+            }
+        });
+     });
+  </script>
+
 </body>
 </html>

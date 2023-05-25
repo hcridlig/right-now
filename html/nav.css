@@ -1,151 +1,152 @@
 
-      nav {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        background-color: #07A1DA;
-        padding: 0 1em;
-        border-radius: 10px;
-        border: 1px solid #ccc;
-        margin-bottom: 1rem;
-        width: 100%;
-        position: fixed;
-        /*margin-bottom: 5em;*/
-        z-index: 9999;
-      }
-      
-      .nav-item {
-        margin: 0 0.5rem;
-        font-size: 1.2rem;
-        font-weight: bold;
-        text-transform: uppercase;
-        flex: 1;
-        text-align: center;
-      }
-
-      .nav-item a {
-        text-decoration: none;
-        color: black;
-      }
-      
-      /* Styles for the search bar */
-      .search-bar {
-        display: flex;
-        align-items: center;
-        background-color: #fff;
-        border: 1px solid #ccc;
-        padding: 0.15rem 0.5rem;
-        margin: 0.8rem;
-        flex: 2;
-      }
-      
-      .search-bar input[type="text"] {
-        flex-grow: 1;
-        border: none;
-        outline: none;
-        font-size: 1rem;
-        padding: 0.5rem;
-        margin-right: 0.5rem;
-        width: 45em;
-      }
-      
-      .search-bar button {
-        background-color: #007bff;
-        color: #fff;
-        border: none;
-        outline: none;
-        font-size: 1rem;
-        padding: 0.5rem;
-        cursor: pointer;
-      }
-
-      .search-bar button:hover {
-        background-color: #0062cc;
-      }
-      
-      /* Styles for the login and sign-up buttons */
-      .login-btn, .signup-btn {
-        background-color: #045877;
-        color: #fff;
-        border: none;
-        outline: none;
-        font-size: 1.2rem;
-        padding: 0.5rem;
-        cursor: pointer;
-        margin: 0 0.5rem;
-        border-radius: 10px;
-      }
-      
-      .login-btn:hover, .signup-btn:hover {
-        background-color: #0062cc;
-      }
-
-      /* Sidenav menu */
-.sidenav {
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #07A1DA;
+  padding: 0 1em;
   border-radius: 10px;
-  height: 25%;
-  width: 250px;
+  border: 1px solid #ccc;
+  margin-bottom: 1rem;
+  width: 100%;
   position: fixed;
-  z-index: 1;
-  top: 0;
-  margin-top: 5em;
-  left: -250px;
-  background-color: #e8e8e8;
-  padding-top: 65px;
-  transition: right 0.5s ease;
+  /*margin-bottom: 5em;*/
+  z-index: 9999;
+}
+
+.nav-item {
+  margin: 0 0.5rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  flex: 1;
+  text-align: center;
+}
+
+.nav-item a {
+  text-decoration: none;
+  color: black;
+}
+
+/* Styles for the search bar */
+.search-bar {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 0.15rem 0.5rem;
+  margin: 0.8rem;
+  flex: 2;
+  width: 5em; /* Ajustez la largeur selon vos besoins */
+}
+
+.search-bar input[type="text"] {
+  flex-grow: 1;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  padding: 0.5rem;
+  margin-right: 0.5rem;
+  width: 45em;
+}
+
+.search-bar button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+.search-bar button:hover {
+  background-color: #0062cc;
+}
+
+/* Styles for the login and sign-up buttons */
+.login-btn, .signup-btn {
+  background-color: #045877;
+  color: #fff;
+  border: none;
+  outline: none;
+  font-size: 1.2rem;
+  padding: 0.5rem;
+  cursor: pointer;
+  margin: 0 0.5rem;
+  border-radius: 10px;
+}
+
+.login-btn:hover, .signup-btn:hover {
+  background-color: #0062cc;
+}
+
+/* Sidenav menu */
+.sidenav {
+border-radius: 10px;
+height: 25%;
+width: 250px;
+position: fixed;
+z-index: 1;
+top: 0;
+margin-top: 5em;
+left: -250px;
+background-color: #e8e8e8;
+padding-top: 65px;
+transition: right 0.5s ease;
 }
 
 /* Sidenav menu links */
 .sidenav a {
-  padding: 8px 8px 8px 32px;
-  text-decoration: none;
-  font-size: 25px;
-  color: #818181;
-  display: block;
-  transition: 0.3s;
+padding: 8px 8px 8px 32px;
+text-decoration: none;
+font-size: 25px;
+color: #818181;
+display: block;
+transition: 0.3s;
 }
 
 .sidenav a:hover {
-  color: #111;
+color: #111;
 }
 
 .sidenav ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
+list-style-type: none;
+padding: 0;
+margin: 0;
 }
 
 /* Active class*/ 
 .sidenav.active {
-  left: 105em;
-  top: 50px;
+left: 105em;
+top: 50px;
 }
 
 /* Close btn */
 .sidenav .close {
-  position: absolute;
-  top: 0;
-  right: 25px;
-  font-size: 36px;
+position: absolute;
+top: 0;
+right: 25px;
+font-size: 36px;
 }
 
 /* Icône burger */
 .burger-icon span {
-  display: flex;
-  width: 35px;
-  height: 5px;
-  background-color: black;
-  margin: 6px 0;
+display: flex;
+width: 35px;
+height: 5px;
+background-color: black;
+margin: 6px 0;
 }
 
 .burger-icon {
-  float: right;
-  margin-left: 2em;
-  background: white;
-  padding: 0.4em;
-  border-radius: 10px;
+float: right;
+margin-left: 2em;
+background: white;
+padding: 0.4em;
+border-radius: 10px;
 }
 
 .burger-icon:hover {
-  background-color: #F4F4F4;
+background-color: #F4F4F4;
 }

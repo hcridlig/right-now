@@ -41,7 +41,7 @@
     <a id="closeBtn" href="#" class="close">×</a>
     <ul>
       <li><a href="#">A propos</a></li>
-      <li><a href="#">Historique</a></li>
+      <li><a href="recap.php">Historique</a></li>
       <li><a href="#">Panier</a></li>
       <li><a href="#"></a></li>
     </ul>

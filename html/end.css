@@ -7,10 +7,10 @@
 
       footer {
         width: 100%;
-        position: absolute;
+        position: relative;
         bottom: 0;
         left: 0;
-        background-color: #f5f5f5; /* Couleur de fond du pied de page */
+        background-color: #f5f5f5;
         padding: 20px;
       }
       

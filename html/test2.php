@@ -8,30 +8,31 @@
   </head>
 
 <body>
+
   <?php require "nav.php" ?>
 
 <div style="margin-top: 8em;">
 
-<div id="lunch-offers" class="restaurant-section">
-  <h2>Les offres du midi</h2>
-  <div class="restaurant-container">
+  <div id="lunch-offers" class="restaurant-section">
+    <h2>Les offres du midi</h2>
+    <div class="restaurant-container">
 
-    <div class="card mb-3" style="max-width: 550px;">
-      <div class="row g-0">
-        <div class="col-md-4">
-          <img src="https://picsum.photos/id/235/200/300" class="img-fluid rounded-start" alt="...">
-        </div>
-        <div class="col-md-8">
-          <div class="card-body">
-          <h5 class="card-title">Restaurant 1</h5>
-          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-          <p class="card-text"><small class="text-body-secondary">5 Km de distance</small></p>
+      <div class="card mb-3" style="max-width: 550px;">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src="https://picsum.photos/id/235/200/300" class="img-fluid rounded-start" alt="...">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+            <h5 class="card-title">Restaurant 1</h5>
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            <p class="card-text"><small class="text-body-secondary">5 Km de distance</small></p>
           </div>
           <div class="rating">
             <img src="images/star.png" alt="Star">
             <p>4.5 (200+)</p>
           </div>
-            <button type="button">Voir le menu</button>
+          <button type="button">Voir le menu</button>
         </div>
       </div>
     </div>
@@ -145,7 +146,7 @@
   </div>
 </div>
 
-<section class="restaurant-section">
+<div class="restaurant-section">
   <h2>Devant le match</h2>
   <div class="restaurant-container">
 

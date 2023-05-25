@@ -2,6 +2,7 @@ footer {
         margin-left: 0.5em;
         position: fixed;
         bottom: 0;
+        /*width: 100%;*/
       }
 
       .socialnet img {

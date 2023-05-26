@@ -89,8 +89,9 @@ nav {
   border-radius: 20px;
 }
 
-
-
+/*.ml-auto {
+  padding-top: 50%;
+}*/
 
 /* Sidenav menu */
 .sidenav {

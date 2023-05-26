@@ -11,14 +11,15 @@
 
     
 
-      <div class="container" style="margin-top: 8em; margin-bottom: 7.5em;">
-        <h1 class="text-center" style="margin-bottom: 1em; margin-right: 30em;">Panier</h1>
+      <div class="container" style="margin-top: 8em; margin-bottom: 7em;">
+        <h1 class="text-center" style="margin-bottom: 0.2em; margin-right: 30em;">Panier</h1>
         <div class="row">
           <div class="col-md-8">
             <table class="table table-striped">
               <thead>
                 <tr>
                   <th scope="col">Article</th>
+                  <th scope="col">Restaurant</th>
                   <th scope="col">Prix</th>
                   <th scope="col">Quantité</th>
                   <th scope="col">Total</th>
@@ -28,6 +29,7 @@
               <tbody>
                 <tr>
                   <td><img src="https://via.placeholder.com/100x100" alt="Produit 1" class="img-thumbnail"> Produit 1</td>
+                  <td>Restau1</td>
                   <td>10 €</td>
                   <td><input type="number" value="1" min="1" max="10" class="form-control"></td>
                   <td>10 €</td>
@@ -35,6 +37,7 @@
                 </tr>
                 <tr>
                   <td><img src="https://via.placeholder.com/100x100" alt="Produit 2" class="img-thumbnail"> Produit 2</td>
+                  <td>Restau2</td>
                   <td>20 €</td>
                   <td><input type="number" value="2" min="1" max="10" class="form-control"></td>
                   <td>40 €</td>
@@ -42,6 +45,7 @@
                 </tr>
                 <tr>
                   <td><img src="https://via.placeholder.com/100x100" alt="Produit 3" class="img-thumbnail"> Produit 3</td>
+                  <td>Restau3</td>
                   <td>30 €</td>
                   <td><input type="number" value="3" min="1" max="10" class="form-control"></td>
                   <td>90 €</td>
@@ -55,9 +59,9 @@
             <div class="card">
               <div class="card-body">
                 <h5 class="card-title">Récapitulatif</h5>
-                <p class="card-text">Sous-total : 140 €</p>
+                <p class="card-text">Total de la commande : 140 €</p>
                 <p class="card-text">Livraison : 10 €</p>
-                <p class="card-text">Total : 150 €</p>
+                <p class="card-text">Total à payer: 150 €</p>
                 <a href="#" class="btn btn-primary">Payer</a>
               </div>
             </div>

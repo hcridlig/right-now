@@ -147,7 +147,7 @@ font-size: 30px;
 display: flex;
 width: 35px;
 height: 5px;
-background-color: black;
+background-color: #28A745;
 margin: 6px 0;
 }
 
@@ -157,6 +157,7 @@ margin-left: 2em;
 background: white;
 padding: 0.4em;
 border-radius: 10px;
+border: 1px solid #28A745;
 }
 
 .burger-icon:hover {

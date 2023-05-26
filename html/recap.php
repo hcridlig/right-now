@@ -10,7 +10,7 @@
 <body>
   <?php require "nav.php" ?>
 
-  <div class="container" style="margin-top: 8em; margin-bottom: 22em;">
+  <div class="container" style="margin-top: 8em; margin-bottom: 21em;">
     <h1>Historique de commandes</h1>
     <!-- Créer un tableau avec bootstrap qui contient les informations des commandes -->
     <table class="table table-striped">

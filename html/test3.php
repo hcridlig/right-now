@@ -14,25 +14,21 @@
       object-fit: cover; /* Ensure the image covers the container */
     }
     .line-container {
-      background-color: #eaf0f6; /* Light blue color */
+      background-color: #aab6fa; /* Light blue color */
       border-radius: 10px; /* Rounded corners */
       padding: 20px; /* Adjust the padding as per your requirement */
       margin-bottom: 20px; /* Adjust the margin as per your requirement */
     }
+
+    .container{
+      margin-top: 100px;
+    }
+
+    
   </style>
 
 
-  <nav>
-    <div class="nav-item"><a href="test2.html">Right Now</a></div>
-    <div class="search-bar">
-      <input type="text" placeholder="Recherchez un restaurant">
-      <button type="submit">Rechercher</button>
-    </div>
-    <div>
-      <button class="login-btn" type="button" onclick="location.href='login.php';">Login</button>
-      <button class="signup-btn" type="button" onclick="location.href='signup.php';">Sign up</button>
-    </div>
-  </nav>
+  <?php require_once 'nav.php'; ?>
 
   <div class="container">
     <section id="restaurant-section">

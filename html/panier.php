@@ -23,7 +23,7 @@ require 'Scripts/session.php';?>
     </script>
     
 
-      <div class="container" style="margin-top: 8em; margin-bottom: 7em;">
+      <div class="container" style="margin-top: 8em; margin-bottom: 9em;">
         <h1 class="text-center" style="margin-bottom: 0.2em; margin-right: 30em;">Panier</h1>
         <div class="row">
           <div class="col-md-8">

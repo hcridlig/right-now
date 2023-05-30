@@ -29,10 +29,10 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `Menu` (
   `id_Menu` int NOT NULL,
-  `Label` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `Label` varchar(30) CHARACTER SET utf8mb4 NOT NULL,
   `Prix` float NOT NULL,
   `FK_Restaurant` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
 
 --
 -- Déchargement des données de la table `Menu`

@@ -167,21 +167,3 @@ background-color: #F4F4F4;
 /*.navbar .ml-auto {
   margin-left: auto !important;
 }*/
-
-.rating {
-  display: flex;
-  align-items: center;
-  margin-top: 0.5rem;
-  margin-left: 0.6em;
-}
-
-.rating img {
-  width: 25px;
-  height: 25px;
-  margin-right: 0.5rem;
-}
-
-.rating p {
-  font-size: 1.2rem;
-  margin: 0;
-}

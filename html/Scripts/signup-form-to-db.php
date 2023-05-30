@@ -61,7 +61,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $conn->close();
 
     // Redirect to a success page
-    header("Location: success.html");
+    header("Location: ../index.php");
     exit;
 } else {
     // If the form was not submitted, redirect back to the previous page

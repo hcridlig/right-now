@@ -80,7 +80,13 @@
       <li><a href="#"></a></li>
       <li><a href="#"></a></li>
       <li><a href="#"></a></li>
-      <li><button style="background-color: red; color: white;">Déconnexion</button></li>
+      <li><a href="#"></a></li>
+      <li><a href="#"></a></li>
+      <li><a href="#"></a></li>
+      <li><a href="#"></a></li>
+      <li><a href="#"></a></li>
+      <li><a href="#"></a></li>
+      <li><button style="background-color: red; color: white; border-radius: 10px; padding-left: 3em;">Déconnexion</button></li>
     </ul>
   </div>
 

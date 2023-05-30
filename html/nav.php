@@ -48,12 +48,14 @@
       <button class="btn btn-outline-success" type="submit" id="search-button">Rechercher</button>
     </form>
     <div class="ml-auto">
+      <?php if ($email=="") { ?>
       <div class="btn-group ml-auto" style="padding-top: 0.5em;">
         <button class="btn btn-primary rounded-btn me-2" type="button" onclick="location.href='login.php';">Login</button>
       </div>
       <div class="btn-group ml-auto" style="padding-top: 0.5em;">
         <button class="btn btn-primary rounded-btn" type="button" onclick="location.href='signup.php';">Sign up</button>
       </div>
+      <?php } ?>
       <a href="#" id="openBtn">
           <span class="burger-icon">
             <span></span>

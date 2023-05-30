@@ -19,7 +19,7 @@
 
     <?php require_once 'nav.php'; ?>
 
-  <div class="container">
+  <div class="container" style="margin-top: 8em; margin-bottom: 8em;">
     <div class="card">
       <h5 class="card-header">Informations du compte</h5>
       <div class="card-body">

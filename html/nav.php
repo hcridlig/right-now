@@ -73,6 +73,14 @@
       <li><a href="recap.php">Historique</a></li>
       <li><a href="panier.php">Panier</a></li>
       <li><a href="#"></a></li>
+      <li><a href="#"></a></li>
+      <li><a href="#"></a></li>
+      <li><a href="#"></a></li>
+      <li><a href="#"></a></li>
+      <li><a href="#"></a></li>
+      <li><a href="#"></a></li>
+      <li><a href="#"></a></li>
+      <li><button style="background-color: red; color: white;">Déconnexion</button></li>
     </ul>
   </div>
 

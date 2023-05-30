@@ -44,7 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Password is correct, user is authenticated
             // Redirect to the dashboard or desired page
             $_SESSION['email'] = $email;
-            header("Location: ../test1.php");
+            header("Location: ../index.php");
             exit;
         }
     }

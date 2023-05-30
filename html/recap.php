@@ -1,3 +1,6 @@
+<?php session_start(); 
+require 'Scripts/session.php';?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,61 +11,62 @@
 </head>
 
 <body>
-  <?php require "nav.php" ?>
+  <?php require "nav.php";
+  
+  require_once 'Scripts/env_retrieve.php';
+  
+  $servername = $DB_HOST;
+  $username = $DB_USER;
+  $password_db = $DB_PASS;
+  $dbname = "projet";
+
+  $conn = new mysqli($servername, $username, $password_db, $dbname);
+
+  // Check for connection errors
+  if ($conn->connect_error) {
+      die("Connection failed: " . $conn->connect_error);
+  }
+  
+  
+  $stmt = $conn->prepare("SELECT C.id_Commande, C.date, M.Prix, R.nom
+  FROM Menu M, Menu_Commande MC, Commande C, restaurant R
+  WHERE M.id_Menu=MC.FK_Menu AND C.id_Commande=MC.FK_Commande AND R.id_restaurant=M.FK_Restaurant AND C.FK_User=? ORDER BY C.date");
+  $stmt->bind_param("s", $email);
+  $stmt->execute();
+  $result = $stmt->get_result();?>
 
   <div class="container" style="margin-top: 8em; margin-bottom: 21em;">
     <h1>Historique de commandes</h1>
-    <!-- Créer un tableau avec bootstrap qui contient les informations des commandes -->
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>Numéro de commande</th>
-          <th>Date</th>
-          <th>Restaurant</th>
-          <th>Prix</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        <!-- Remplacer les valeurs par celles de vos commandes -->
-        <tr>
-          <td>123456</td>
-          <td>23/05/2023</td>
-          <td>Pizza Hut</td>
-          <td>10 €</td>
-          <td><button class="supp" type="button" onclick="deleteFunction()">&times;</button>
-            <script>
-              function deleteFunction() {
-                // écrivez votre logique de suppression ici
-              }
-            </script></td>
-        </tr>
-        <tr>
-          <td>789012</td>
-          <td>22/05/2023</td>
-          <td>Sushi Shop</td>
-          <td>15 €</td>
-          <td><button class="supp" type="button" onclick="deleteFunction()">&times;</button>
-            <script>
-              function deleteFunction() {
-                // écrivez votre logique de suppression ici
-              }
-            </script></td>
-        </tr>
-        <tr>
-          <td>345678</td>
-          <td>21/05/2023</td>
-          <td>Burger King</td>
-          <td>8 €</td>
-          <td><button class="supp" type="button" onclick="deleteFunction()">&times;</button>
-            <script>
-              function deleteFunction() {
-                // écrivez votre logique de suppression ici
-              }
-            </script></td>
-        </tr>
-      </tbody>
-    </table>
+    <?php
+    if ($result->num_rows > 0) {
+    echo '<table class="table table-striped">';
+    echo '<thead>';
+    echo '<tr>';
+    echo '<th>Numéro de commande</th>';
+    echo '<th>Date</th>';
+    echo '<th>Restaurant</th>';
+    echo '<th>Prix</th>';
+    echo '</tr>';
+    echo '</thead>';
+    echo '<tbody>';
+
+    while ($row = $result->fetch_assoc()) {
+        echo '<tr>';
+        echo '<td>' . $row['id_Commande'] . '</td>';
+        echo '<td>' . $row['date'] . '</td>';
+        echo '<td>' . $row['nom'] . '</td>';
+        echo '<td>' . $row['Prix'] . '</td>';
+        echo '</tr>';
+    }
+
+    echo '</tbody>';
+    echo '</table>';
+} else {
+    echo 'No results found.';
+}
+
+// Step 4: Close the database connection
+$conn->close();?>
   </div>
   <?php require "end.php" ?>
 </body>

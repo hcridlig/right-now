@@ -10,7 +10,7 @@
 
 <script>
     setTimeout(function() {
-      window.location.href = "test1.php"; // Replace with the URL of the destination page
+      window.location.href = "index.php"; // Replace with the URL of the destination page
     }, 5000); // 5000 milliseconds = 5 seconds
   </script>
 

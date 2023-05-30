@@ -1,3 +1,7 @@
+<?php session_start(); 
+require 'Scripts/session.php';?>
+
+
 <!DOCTYPE html>
 <html>
 <head>

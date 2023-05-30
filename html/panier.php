@@ -1,4 +1,7 @@
-  <!DOCTYPE html>
+<?php session_start(); 
+require 'Scripts/session.php';?>
+
+<!DOCTYPE html>
 <html>
 <head>
 	<link href="panier.css" rel="stylesheet" type="text/css">
@@ -6,9 +9,18 @@
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 </head>
   <body>
-
-    <?php require "nav.php" ?>
-
+    
+    <?php require "nav.php" ;?>
+    
+    <script>
+        // Display pop-up on page load if the user is not connected
+        window.addEventListener('DOMContentLoaded', () => {
+            <?php if ($email == "") : ?>
+            alert("Vous n'etes pas connectez, vous allez être redirigez.");
+            window.location.href = 'index.php';
+            <?php endif; ?>
+        });
+    </script>
     
 
       <div class="container" style="margin-top: 8em; margin-bottom: 7em;">

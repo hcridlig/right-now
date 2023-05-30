@@ -69,7 +69,7 @@
   <div id="mySidenav" class="sidenav">
     <a id="closeBtn" href="#" class="close">X</a>
     <ul>
-      <li><a href="#">A propos</a></li>
+      <li><a href="#">Mon compte</a></li>
       <li><a href="recap.php">Historique</a></li>
       <li><a href="panier.php">Panier</a></li>
       <li><a href="#"></a></li>

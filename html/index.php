@@ -6,7 +6,7 @@ require 'Scripts/session.php';?>
 <html>
 <head>
   <title>Right Now</title>
-  <link href="resultat.css" rel="stylesheet" type="text/css">
+  <!--<link href="resultat.css" rel="stylesheet" type="text/css">-->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
@@ -86,36 +86,7 @@ require 'Scripts/session.php';?>
     </section>
   </div>
 
-  <!-- Footer section -->
-  <footer>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-4">
-          <h4>Contactez-nous</h4>
-          <p>123 Rue de la Paix<br>
-            75001 Paris<br>
-            France<br>
-            <a href="mailto:contact@rightnow.com">contact@rightnow.com</a></p>
-        </div>
-        <div class="col-md-4">
-          <h4>Liens utiles</h4>
-          <ul>
-            <li class="lien"><a href="test2.html">Accueil</a></li>
-            <li class="lien"><a href="#">Recherche</a></li>
-            <li class="lien"><a href="#">Mon compte</a></li>
-            <li class="lien"><a href="#">Aide</a></li>
-          </ul>
-        </div>
-        <div class="col-md-4">
-          <h4>Suivez-nous</h4>
-          <ul class="social-media">
-            <li><a href="#"><img src="images/facebook.png" alt="Facebook"></a></li>
-            <li><a href="#"><img src="images/twitter.png" alt="Twitter"></a></li>
-            <li><a href="#"><img src="images/instagram.png" alt="Instagram"></a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </footer> 
+  <?php require_once 'end.php'; ?>
+  
 </body>
 </html>

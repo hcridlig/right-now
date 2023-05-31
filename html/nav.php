@@ -41,7 +41,9 @@
 
 <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" >
-    <a class="navbar-brand" href="index.php">Right Now</a>
+    <a class="navbar-brand" href="index.php">
+      <img src="images/logo.png" alt="logo" width="70" height="70" style="margin:0;">
+    </a>
     <form class="d-flex">
       <input class="form-control me-2" type="search" id="search" placeholder="Recherchez un restaurant" aria-label="Search" style="width: 40em;">
       <div id="search-results" class="search-results-container"></div>
@@ -86,7 +88,9 @@
       <li><a href="#"></a></li>
       <li><a href="#"></a></li>
       <li><a href="#"></a></li>
-      <li style="padding-left: 3.5em; padding-top: 10em;"><button style="background-color: red; color: white; border-radius: 10px;">Déconnexion</button></li>
+      <?php if ($email!="") { ?>
+      <li style="padding-left: 3.5em; padding-top: 10em;"><button style="background-color: red; color: white; border-radius: 10px;" onclick="location.href='Scripts/logoff.php'" >Déconnexion</button></li>
+      <?php } ?>
     </ul>
   </div>
 

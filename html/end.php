@@ -14,9 +14,9 @@
       <div class="col-md-4">
         <h4>Liens utiles</h4>
         <ul >
-          <li class="lien"><a href="index.html">Accueil</a></li>
+          <li class="lien"><a href="index.php">Accueil</a></li>
           <li class="lien"><a href="#">Recherche</a></li>
-          <li class="lien"><a href="#">Mon compte</a></li>
+          <li class="lien"><a href="moncompte.php">Mon compte</a></li>
           <li class="lien"><a href="#">Aide</a></li>
         </ul>
       </div>

@@ -131,7 +131,7 @@ margin: 0;
 /* Active class*/ 
 .sidenav.active {
 left: 105em;
-top: 50px;
+top: 20em;
 }
 
 /* Close btn */

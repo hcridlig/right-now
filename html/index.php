@@ -40,9 +40,10 @@ require 'Scripts/session.php';?>
       <?php
       require_once 'Scripts/connection_db.php';
       $sql = "SELECT * FROM restaurant LIMIT 9";
-      $result = $connection->query($sql);
-
-      if (mysqli_num_rows($result) == 0) {
+      //$result = $connection->query($sql);
+      $result = mysqli_query($connection, $sql);
+      print_r($result);
+      if ($result == 0) {
         echo '<p>Aucun résultat trouvé</p>';
       } else {
         $counter = 0; // Counter to keep track of the number of results

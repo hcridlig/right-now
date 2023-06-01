@@ -15,6 +15,40 @@ require 'Scripts/env_retrieve.php';
             src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
             crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Function to remove item from cart
+            function removeItem(itemId, itemType) {
+                // Send AJAX request to remove the item from session
+                $.ajax({
+                    url: 'remove_from_cart.php',
+                    type: 'POST',
+                    data: {
+                        itemId: itemId,
+                        itemType: itemType
+                    },
+                    success: function (response) {
+                        // If removal is successful, remove the row from the table
+                        $('#row_' + itemId).remove();
+                    },
+                    error: function (xhr, status, error) {
+                        // Handle error case
+                        console.log(xhr.responseText);
+                    }
+                });
+            }
+
+            // Event listener for the "Supprimer" button
+            $('.btn-danger').click(function () {
+                var itemId = $(this).data('item-id');
+                var itemType = $(this).data('item-type');
+
+                // Call the removeItem function
+                removeItem(itemId, itemType);
+            });
+        });
+    </script>
 </head>
 <body>
 <?php require "nav.php"; ?>
@@ -55,43 +89,38 @@ require 'Scripts/env_retrieve.php';
                     $stmt->bind_param("i", $menuId);
                     $stmt->execute();
                     $menuResult = $stmt->get_result();
+                    $menu = $menuResult->fetch_assoc();
 
-                    if ($menuResult->num_rows > 0) {
-                        $menu = $menuResult->fetch_assoc();
+                    if ($menu) {
+                        $itemId = $menu['id_Menu'];
                         $itemName = $menu['Label'];
                         $restaurantId = $menu['FK_Restaurant'];
                         $price = $menu['Prix'];
                         $quantity = 1; // Example quantity, you can fetch it from the session or update it dynamically
                         $total = $price * $quantity;
-
-                        // Retrieve restaurant details
-                        $stmt = $connection->prepare("SELECT nom FROM restaurant WHERE id_Restaurant = ?");
-                        $stmt->bind_param("i", $restaurantId);
-                        $stmt->execute();
-                        $restaurantResult = $stmt->get_result();
-                        if ($restaurantResult->num_rows > 0) {
-                            $restaurant = $restaurantResult->fetch_assoc();
-                            $restaurantName = $restaurant['nom'];
-                        } else {
-                            $restaurantName = "Unknown";
-                        }
                     } else {
                         // Handle the case where the menu item doesn't exist in the database
+                        $itemId = '';
                         $itemName = "Menu item not found";
-                        $restaurantName = "";
+                        $restaurantId = '';
                         $price = 0;
                         $quantity = 0;
                         $total = 0;
                     }
                     ?>
-                    <tr>
+                    <tr id="row_<?php echo $itemId; ?>">
                         <td><?php echo $itemName; ?></td>
-                        <td><?php echo $restaurantName; ?></td>
+                        <td><?php echo $restaurantId; ?></td>
                         <td><?php echo $price; ?> €</td>
                         <td><input type="number" value="<?php echo $quantity; ?>" min="1" max="10"
                                    class="form-control"></td>
                         <td><?php echo $total; ?> €</td>
-                        <td><button type="button" class="btn btn-danger">Supprimer</button></td>
+                        <td>
+                            <button type="button" class="btn btn-danger"
+                                    data-item-id="<?php echo $itemId; ?>"
+                                    data-item-type="menu">Supprimer
+                            </button>
+                        </td>
                     </tr>
                     <?php
                 }
@@ -102,43 +131,38 @@ require 'Scripts/env_retrieve.php';
                     $stmt->bind_param("i", $produitId);
                     $stmt->execute();
                     $produitResult = $stmt->get_result();
+                    $produit = $produitResult->fetch_assoc();
 
-                    if ($produitResult->num_rows > 0) {
-                        $produit = $produitResult->fetch_assoc();
+                    if ($produit) {
+                        $itemId = $produit['id_Produit'];
                         $itemName = $produit['Label'];
                         $restaurantId = $produit['FK_Restaurant'];
                         $price = $produit['Prix'];
                         $quantity = 1; // Example quantity, you can fetch it from the session or update it dynamically
                         $total = $price * $quantity;
-
-                        // Retrieve restaurant details
-                        $stmt = $connection->prepare("SELECT nom FROM restaurant WHERE id_Restaurant = ?");
-                        $stmt->bind_param("i", $restaurantId);
-                        $stmt->execute();
-                        $restaurantResult = $stmt->get_result();
-                        if ($restaurantResult->num_rows > 0) {
-                            $restaurant = $restaurantResult->fetch_assoc();
-                            $restaurantName = $restaurant['nom'];
-                        } else {
-                            $restaurantName = "Unknown";
-                        }
                     } else {
                         // Handle the case where the product item doesn't exist in the database
+                        $itemId = '';
                         $itemName = "Product item not found";
-                        $restaurantName = "";
+                        $restaurantId = '';
                         $price = 0;
                         $quantity = 0;
                         $total = 0;
                     }
                     ?>
-                    <tr>
+                    <tr id="row_<?php echo $itemId; ?>">
                         <td><?php echo $itemName; ?></td>
-                        <td><?php echo $restaurantName; ?></td>
+                        <td><?php echo $restaurantId; ?></td>
                         <td><?php echo $price; ?> €</td>
                         <td><input type="number" value="<?php echo $quantity; ?>" min="1" max="10"
                                    class="form-control"></td>
                         <td><?php echo $total; ?> €</td>
-                        <td><button type="button" class="btn btn-danger">Supprimer</button></td>
+                        <td>
+                            <button type="button" class="btn btn-danger"
+                                    data-item-id="<?php echo $itemId; ?>"
+                                    data-item-type="produit">Supprimer
+                            </button>
+                        </td>
                     </tr>
                     <?php
                 }

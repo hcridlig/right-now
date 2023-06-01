@@ -95,7 +95,6 @@ function errorCallback(error) {
           $imageURL = $row['image'];
           //$imageURL = 'images/restaurant.jpg';
 
-         
 
             if ($counter % 3 == 0) {
               echo '<div class="line-container"><div class="row">';
@@ -111,11 +110,11 @@ function errorCallback(error) {
                         <div class="rating">
                           <img src="images/star.png" alt="Star">
                           <p>' . $rating . '</p>
-                        </div>
-                        <button type="button">Voir le menu</button>
+                        </div>';?>
+                        <button type="button"  onclick="location.href = 'restaurant.php?id=<?php echo $row['id_restaurant'];?>';">Voir le menu</button>
                       </div>
                     </div>
-                  </div>';
+                  </div><?php
 
             if ($counter % 3 == 2 || $counter == mysqli_num_rows($result) - 1) {
               echo '</div></div>';

@@ -1,5 +1,8 @@
 <?php session_start(); 
-require 'Scripts/session.php';?>
+require 'Scripts/session.php';
+require_once 'Scripts/env_retrieve.php';
+?>
+
 
 
 <!DOCTYPE html>
@@ -31,6 +34,41 @@ require 'Scripts/session.php';?>
     
   </style>
 
+<script>
+var userLat;
+var userLon;
+
+if (navigator.geolocation) {
+  // Get the user's current position
+  navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
+} else {
+  console.log('Geolocation is not supported by this browser.');
+}
+
+
+function successCallback(position) {
+  userLat = position.coords.latitude;
+  userLon = position.coords.longitude;
+}
+
+function errorCallback(error) {
+  switch (error.code) {
+    case error.PERMISSION_DENIED:
+      console.log('User denied the request for Geolocation.');
+      break;
+    case error.POSITION_UNAVAILABLE:
+      console.log('Location information is unavailable.');
+      break;
+    case error.TIMEOUT:
+      console.log('The request to get user location timed out.');
+      break;
+    case error.UNKNOWN_ERROR:
+      console.log('An unknown error occurred.');
+      break;
+  }
+}
+
+</script>
 
   <?php require_once 'nav.php'; ?>
 
@@ -49,38 +87,41 @@ require 'Scripts/session.php';?>
         while ($row = mysqli_fetch_assoc($result)) {
           $name = $row['nom'];
           //$description = $row['description'];
-          $distance = $row['adresse'];
+          $adresse = $row['adresse'];
           $rating = $row['note'];
           $imageURL = $row['image'];
           //$imageURL = 'images/restaurant.jpg';
 
-          if ($counter % 3 == 0) {
-            echo '<div class="line-container"><div class="row">';
-          }
+         
 
-          echo '<div class="col-md-4">
-                  <div class="card mb-3" style="max-width: 550px;">
-                    <img src="'.$imageURL.'" class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">' . $name . '</h5>
-                      <p class="card-text">Description</p>
-                      <p class="card-text"><small class="text-body-secondary">' . $distance . ' Km de distance</small></p>
-                      <div class="rating">
-                        <img src="images/star.png" alt="Star">
-                        <p>' . $rating . ' (200+)</p>
+            if ($counter % 3 == 0) {
+              echo '<div class="line-container"><div class="row">';
+            }
+
+            echo '<div class="col-md-4">
+                    <div class="card mb-3" style="max-width: 550px;">
+                      <img src="'.$imageURL.'" class="card-img-top" alt="...">
+                      <div class="card-body">
+                        <h5 class="card-title">' . $name . '</h5>
+                        <p class="card-text">Description</p>
+                        <p class="card-text"><small class="text-body-secondary">' . $adresse . ' -  Km de distance</small></p>
+                        <div class="rating">
+                          <img src="images/star.png" alt="Star">
+                          <p>' . $rating . '</p>
+                        </div>
+                        <button type="button">Voir le menu</button>
                       </div>
-                      <button type="button">Voir le menu</button>
                     </div>
-                  </div>
-                </div>';
+                  </div>';
 
-          if ($counter % 3 == 2 || $counter == mysqli_num_rows($result) - 1) {
-            echo '</div></div>';
+            if ($counter % 3 == 2 || $counter == mysqli_num_rows($result) - 1) {
+              echo '</div></div>';
+            }
+
+            $counter++;
           }
-
-          $counter++;
-        }
       }
+      
       ?>
 
     </section>

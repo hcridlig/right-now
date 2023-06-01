@@ -18,36 +18,75 @@ require 'Scripts/env_retrieve.php';
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
         $(document).ready(function () {
-            // Function to remove item from cart
-            function removeItem(itemId, itemType) {
-                // Send AJAX request to remove the item from session
-                $.ajax({
-                    url: 'remove_from_cart.php',
-                    type: 'POST',
-                    data: {
-                        itemId: itemId,
-                        itemType: itemType
-                    },
-                    success: function (response) {
-                        // If removal is successful, remove the row from the table
-                        $('#row_' + itemId).remove();
-                    },
-                    error: function (xhr, status, error) {
-                        // Handle error case
-                        console.log(xhr.responseText);
-                    }
-                });
-            }
+  // Function to remove item from cart
+  function removeItem(itemId, itemType) {
+    // Send AJAX request to remove the item from session
+    $.ajax({
+      url: 'remove_from_cart.php',
+      type: 'POST',
+      data: {
+        itemId: itemId,
+        itemType: itemType
+      },
+      success: function (response) {
+        // If removal is successful, remove the row from the table
+        $('#row_' + itemId).remove();
+        calculateTotal(); // Recalculate the total
+      },
+      error: function (xhr, status, error) {
+        // Handle error case
+        console.log(xhr.responseText);
+      }
+    });
+  }
 
-            // Event listener for the "Supprimer" button
-            $('.btn-danger').click(function () {
-                var itemId = $(this).data('item-id');
-                var itemType = $(this).data('item-type');
+  // Event listener for the "Supprimer" button
+  $('.btn-danger').click(function () {
+    var itemId = $(this).data('item-id');
+    var itemType = $(this).data('item-type');
 
-                // Call the removeItem function
-                removeItem(itemId, itemType);
-            });
-        });
+    // Call the removeItem function
+    removeItem(itemId, itemType);
+  });
+
+  // Event listener for quantity change
+  $('input.quantity').on('input', function () {
+    calculateTotal();
+  });
+
+  // Calculate and update the total price in the recapitulatif card
+  function calculateTotal() {
+    var totalPrice = 0;
+
+    $('table tbody tr').each(function () {
+      var price = parseFloat($(this).find('.price').text());
+      var quantity = parseInt($(this).find('input.quantity').val());
+
+      var total = price * quantity;
+      $(this).find('.total').text(total.toFixed(2) + ' €');
+
+      totalPrice += total;
+    });
+
+    // Update the total in the recapitulatif card
+    $('#total-commande').text(totalPrice.toFixed(2) + ' €');
+    updateTotalToPay(totalPrice);
+  }
+
+  // Calculate and update the "Total à payer" value
+  function updateTotalToPay(totalPrice) {
+    var livraison = 5; // Example delivery cost, you can update it according to your logic
+    var totalToPay = totalPrice + livraison;
+
+    // Update the "Total à payer" value in the recapitulatif card
+    $('#total-payer').text(totalToPay.toFixed(2) + ' €');
+    $('#livraison').text(livraison.toFixed(2) + ' €');
+  }
+
+  // Initial calculation on page load
+  calculateTotal();
+});
+
     </script>
 </head>
 <body>
@@ -85,7 +124,7 @@ require 'Scripts/env_retrieve.php';
 
                 // Retrieve menu items from the database
                 foreach ($cartMenu as $menuId) {
-                    $stmt = $connection->prepare("SELECT * FROM Menu WHERE id_Menu = ?");
+                    $stmt = $connection->prepare("SELECT id_Menu, Label, Prix, FK_Restaurant, nom FROM Menu M, restaurant r WHERE M.FK_Restaurant=r.id_restaurant AND id_Menu = ?");
                     $stmt->bind_param("i", $menuId);
                     $stmt->execute();
                     $menuResult = $stmt->get_result();
@@ -94,7 +133,7 @@ require 'Scripts/env_retrieve.php';
                     if ($menu) {
                         $itemId = $menu['id_Menu'];
                         $itemName = $menu['Label'];
-                        $restaurantId = $menu['FK_Restaurant'];
+                        $restaurantId = $menu['nom'];
                         $price = $menu['Prix'];
                         $quantity = 1; // Example quantity, you can fetch it from the session or update it dynamically
                         $total = $price * $quantity;
@@ -111,10 +150,10 @@ require 'Scripts/env_retrieve.php';
                     <tr id="row_<?php echo $itemId; ?>">
                         <td><?php echo $itemName; ?></td>
                         <td><?php echo $restaurantId; ?></td>
-                        <td><?php echo $price; ?> €</td>
+                        <td class="price"><?php echo $price; ?> €</td>
                         <td><input type="number" value="<?php echo $quantity; ?>" min="1" max="10"
-                                   class="form-control"></td>
-                        <td><?php echo $total; ?> €</td>
+                                   class="form-control quantity"></td>
+                        <td class="total"><?php echo $total; ?> €</td>
                         <td>
                             <button type="button" class="btn btn-danger"
                                     data-item-id="<?php echo $itemId; ?>"
@@ -127,7 +166,7 @@ require 'Scripts/env_retrieve.php';
 
                 // Retrieve product items from the database
                 foreach ($cartProduit as $produitId) {
-                    $stmt = $connection->prepare("SELECT * FROM Produit WHERE id_Produit = ?");
+                    $stmt = $connection->prepare("SELECT id_Produit, Label, Prix, FK_Restaurant, nom FROM Produit P, restaurant r WHERE P.FK_Restaurant=r.id_restaurant AND id_Produit = ?");
                     $stmt->bind_param("i", $produitId);
                     $stmt->execute();
                     $produitResult = $stmt->get_result();
@@ -136,7 +175,7 @@ require 'Scripts/env_retrieve.php';
                     if ($produit) {
                         $itemId = $produit['id_Produit'];
                         $itemName = $produit['Label'];
-                        $restaurantId = $produit['FK_Restaurant'];
+                        $restaurantId = $produit['nom'];
                         $price = $produit['Prix'];
                         $quantity = 1; // Example quantity, you can fetch it from the session or update it dynamically
                         $total = $price * $quantity;
@@ -153,10 +192,10 @@ require 'Scripts/env_retrieve.php';
                     <tr id="row_<?php echo $itemId; ?>">
                         <td><?php echo $itemName; ?></td>
                         <td><?php echo $restaurantId; ?></td>
-                        <td><?php echo $price; ?> €</td>
+                        <td class="price"><?php echo $price; ?> €</td>
                         <td><input type="number" value="<?php echo $quantity; ?>" min="1" max="10"
-                                   class="form-control"></td>
-                        <td><?php echo $total; ?> €</td>
+                                   class="form-control quantity"></td>
+                        <td class="total"><?php echo $total; ?> €</td>
                         <td>
                             <button type="button" class="btn btn-danger"
                                     data-item-id="<?php echo $itemId; ?>"
@@ -175,9 +214,9 @@ require 'Scripts/env_retrieve.php';
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">Récapitulatif</h5>
-                    <p class="card-text">Total de la commande : 140 €</p>
-                    <p class="card-text">Livraison : 10 €</p>
-                    <p class="card-text">Total à payer: 150 €</p>
+                    <p class="card-text">Total de la commande : <span id="total-commande">0</span></p>
+                    <p class="card-text">Livraison : <span id="livraison">0</span></p>
+                    <p class="card-text">Total à payer: <span id="total-payer">0</span></p>
                     <a href="#" class="btn btn-primary">Payer</a>
                 </div>
             </div>

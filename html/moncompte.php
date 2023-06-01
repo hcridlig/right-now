@@ -20,19 +20,18 @@ require 'Scripts/session.php';?>
 </head>
 <body>
 
-    <?php require_once 'nav.php'; ?>
+  <?php require_once 'nav.php'; ?>
 
-    <?php 
-    require_once 'Scripts/connection_db.php';
-    $stmt = $connection->prepare("SELECT name, email, address FROM users WHERE email = ?");
-    $stmt->bind_param("s", $email);
-    $stmt->execute();
-    $result = $stmt->get_result();
-    $utilisateur = $result->fetch_assoc();
+  <?php 
+  require_once 'Scripts/connection_db.php';
+  $stmt = $connection->prepare("SELECT name, email, address FROM users WHERE email = ?");
+  $stmt->bind_param("s", $email);
+  $stmt->execute();
+  $result = $stmt->get_result();
+  $utilisateur = $result->fetch_assoc();
 
-    ?>
+  ?>
 
-  <div class="container" style="margin-top: 8em; margin-bottom: 8em;">
   <div class="container" style="margin-top: 8em; margin-bottom: 9.5em;">
     <div class="card">
       <h5 class="card-header">Informations du compte</h5>

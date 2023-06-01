@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : db
--- Généré le : jeu. 01 juin 2023 à 09:03
+-- Généré le : jeu. 01 juin 2023 à 21:08
 -- Version du serveur : 8.0.31
 -- Version de PHP : 8.0.19
 
@@ -85,7 +85,7 @@ INSERT INTO `Menu` (`id_Menu`, `Label`, `Prix`, `FK_Restaurant`) VALUES
 (11, 'Menu Végétalien', 13.99, 11),
 (12, 'Menu Sans Gluten', 16.99, 12),
 (13, 'Menu Familial', 25.99, 13),
-(14, 'Menu Déjeuner dAffaires', 17.99, 14),
+(14, 'Menu Déjeuner d\'Affaires', 17.99, 14),
 (15, 'Menu Happy Hour', 7.99, 15);
 
 -- --------------------------------------------------------
@@ -96,29 +96,30 @@ INSERT INTO `Menu` (`id_Menu`, `Label`, `Prix`, `FK_Restaurant`) VALUES
 
 CREATE TABLE `Menu_Commande` (
   `FK_Commande` int NOT NULL,
-  `FK_Menu` int NOT NULL
+  `FK_Menu` int NOT NULL,
+  `quantite` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `Menu_Commande`
 --
 
-INSERT INTO `Menu_Commande` (`FK_Commande`, `FK_Menu`) VALUES
-(1, 1),
-(1, 2),
-(2, 3),
-(3, 4),
-(3, 5),
-(4, 6),
-(5, 7),
-(5, 8),
-(6, 9),
-(7, 10),
-(8, 11),
-(9, 12),
-(10, 13),
-(10, 14),
-(11, 15);
+INSERT INTO `Menu_Commande` (`FK_Commande`, `FK_Menu`, `quantite`) VALUES
+(1, 1, 1),
+(1, 2, 1),
+(2, 3, 1),
+(3, 4, 1),
+(3, 5, 1),
+(4, 6, 1),
+(5, 7, 1),
+(5, 8, 1),
+(6, 9, 1),
+(7, 10, 1),
+(8, 11, 1),
+(9, 12, 1),
+(10, 13, 1),
+(10, 14, 1),
+(11, 15, 1);
 
 -- --------------------------------------------------------
 
@@ -162,29 +163,30 @@ INSERT INTO `Produit` (`id_Produit`, `Label`, `Prix`, `FK_Restaurant`) VALUES
 
 CREATE TABLE `Produit_Commande` (
   `FK_Commande` int NOT NULL,
-  `FK_Produit` int NOT NULL
+  `FK_Produit` int NOT NULL,
+  `quantite` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `Produit_Commande`
 --
 
-INSERT INTO `Produit_Commande` (`FK_Commande`, `FK_Produit`) VALUES
-(1, 1),
-(1, 2),
-(2, 3),
-(2, 4),
-(3, 5),
-(3, 6),
-(4, 7),
-(4, 8),
-(5, 9),
-(5, 10),
-(6, 11),
-(6, 12),
-(7, 13),
-(7, 14),
-(8, 15);
+INSERT INTO `Produit_Commande` (`FK_Commande`, `FK_Produit`, `quantite`) VALUES
+(1, 1, 1),
+(1, 2, 1),
+(2, 3, 1),
+(2, 4, 1),
+(3, 5, 1),
+(3, 6, 1),
+(4, 7, 1),
+(4, 8, 1),
+(5, 9, 1),
+(5, 10, 1),
+(6, 11, 1),
+(6, 12, 1),
+(7, 13, 1),
+(7, 14, 1),
+(8, 15, 1);
 
 -- --------------------------------------------------------
 

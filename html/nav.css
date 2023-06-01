@@ -130,7 +130,8 @@ margin: 0;
 
 /* Active class*/ 
 .sidenav.active {
-left: 105em;
+/*left: 105em;*/
+right: 0;
 top: 5em;
 }
 

@@ -52,7 +52,7 @@ INSERT INTO `Menu` (`id_Menu`, `Label`, `Prix`, `FK_Restaurant`) VALUES
 (11, 'Menu Végétalien', 13.99, 11),
 (12, 'Menu Sans Gluten', 16.99, 12),
 (13, 'Menu Familial', 25.99, 13),
-(14, 'Menu Déjeuner d\'Affaires', 17.99, 14),
+(14, 'Menu Déjeuner dAffaires', 17.99, 14),
 (15, 'Menu Happy Hour', 7.99, 15);
 
 --

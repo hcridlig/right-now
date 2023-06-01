@@ -96,7 +96,7 @@ nav {
 /* Sidenav menu */
 .sidenav {
 border-radius: 10px;
-height: 42em;
+height: 35em;
 width: 250px;
 position: fixed;
 z-index: 1;
@@ -131,7 +131,7 @@ margin: 0;
 /* Active class*/ 
 .sidenav.active {
 left: 105em;
-top: 7em;
+top: 5.5em;
 }
 
 /* Close btn */

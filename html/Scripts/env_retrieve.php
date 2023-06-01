@@ -4,4 +4,5 @@ require_once 'DotEnv.php';
 $DB_HOST = getenv('DB_HOST');
 $DB_USER = getenv('DB_USER');
 $DB_PASS = getenv('DB_PASS');
+$API_KEY = getenv('API_KEY');
 ?>

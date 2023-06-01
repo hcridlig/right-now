@@ -81,7 +81,7 @@
       <li><a href="#"></a></li>
       <li><a href="#"></a></li>
       <?php if ($email!="") { ?>
-      <li style="padding-left: 3.5em; padding-top: 9em;"><button style="background-color: red; color: white; border-radius: 10px;" onclick="location.href='Scripts/logoff.php'" >Déconnexion</button></li>
+      <li style="padding-left: 3.5em; padding-top: 11em;"><button style="background-color: red; color: white; border-radius: 10px;" onclick="location.href='Scripts/logoff.php'" >Déconnexion</button></li>
       <?php } ?>
     </ul>
   </div>

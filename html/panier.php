@@ -217,7 +217,7 @@ require 'Scripts/env_retrieve.php';
                     <p class="card-text">Total de la commande : <span id="total-commande">0</span></p>
                     <p class="card-text">Livraison : <span id="livraison">0</span></p>
                     <p class="card-text">Total à payer: <span id="total-payer">0</span></p>
-                    <a href="paye.php" class="btn btn-primary">Payer</a>
+                    <a href="#" class="btn btn-primary">Payer</a>
                 </div>
             </div>
         </div>

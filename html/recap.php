@@ -62,8 +62,9 @@ require 'Scripts/session.php';?>
     echo '</tbody>';
     echo '</table>';
 } else {?>
-  <div style="margin-bottom: 36em;">
-    <?php echo 'No results found.';
+  <div style="margin-bottom: 35em;">
+    <?php echo 'No results found.';?>
+  </div><?php 
 }
 
 // Step 4: Close the database connection
